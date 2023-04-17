@@ -1,6 +1,6 @@
 public interface MyList<T> {
     int size();
-    int contains(Object o);
+    boolean contains(Object o);
     void add(T item);
     void add(T item, int index);
     boolean remove(T item);
