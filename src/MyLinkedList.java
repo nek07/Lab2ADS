@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class MyLinkedList<T> implements MyList<T> {
     private MyNode<T> head;
     private MyNode<T> tail;
@@ -36,14 +38,17 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean remove(T item) { //+++++++++++++++++
+    public boolean remove(T item) {
         int index=indexOf(item);
         checkIndex(index);
-        if(index>=0){
-            remove(index-1);
-            size--;
-            return true;
+        if (index == 0) {
+            head = head.next;
+        } else {
+            MyNode<T> before = (MyNode<T>) getNode(index-1); //take the element before index's value
+            before = before.next; //connect the element before and after specified index
+
         }
+        size--;
         return false;
     }
 
@@ -82,7 +87,6 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public int indexOf(Object o) {
         int index=-1;
-
         for(int i=0;i<size;i++){
             if(head.data==o){
                 index++;
