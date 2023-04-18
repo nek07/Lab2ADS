@@ -53,6 +53,7 @@ public class MyArrayList<T> implements MyList<T> {
         }
         arr[index] = item;
         size++;
+
     }
 
     @Override
@@ -85,7 +86,10 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void clear() {
-
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = null;
+        }
+        size=0;
     }
 
     @Override
