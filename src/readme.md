@@ -276,7 +276,21 @@ public T remove(int index) {
 **Description**: Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element. `O(n)`
 
 ```java
-
+public int lastIndexOf(Object o) {
+        int index=-1;
+        int lastOcc=index;
+        for(int i=0;i<size;i++){
+            if(head.data==o){
+                index++;
+                lastOcc=index;
+            }
+            else{
+                head = head.next;
+                index++;
+            }
+        }
+        return lastOcc;
+    }
 ```
 ### ➕ contains
 **Description**: Checks is the linkedList contains the specified element or not. Respectively, returns `true` or `false`. `O(n)`
@@ -292,7 +306,7 @@ public T remove(int index) {
     }
 ```
 ### ➕ clear
-**Description**: Delete all the elements from LinkedList. `O(n)`
+**Description**: Delete all the elements from LinkedList. `O(1)`
 
 ```java
 public void clear() {

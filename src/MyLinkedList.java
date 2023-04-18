@@ -4,12 +4,21 @@ public class MyLinkedList<T> implements MyList<T> {
     private MyNode<T> head;
     private MyNode<T> tail;
     private int size;
-
+    /*
+        @MyLinkedList() - contructor of this class
+        @noParameters
+        @return void
+    */
     public MyLinkedList() {
         head = null;
         size = 0;
     }
-
+    /*
+        @add() - add new element at the end of LinkedList.
+        @T newItem - element which will be added in LinkedList.
+        @MyNode - class which helps to create and connect nodes.
+        @return void
+    */
     public void add(T newItem) {
         MyNode<T> newNode = new MyNode<>(newItem);
         if (head == null) {
@@ -20,7 +29,12 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         size++;
     }
-
+    /*
+        @add() - add the element in specified index of LinkedList.
+        @T item - element which will be added in LinkedList.
+        @int index - specified place in LinkedList
+        @return void
+    */
     @Override
     public void add(T item, int index) {
         MyNode<T> newNode = new MyNode<>(item);
@@ -31,16 +45,22 @@ public class MyLinkedList<T> implements MyList<T> {
         } else {
             prevNode = head;
             getNode(index);
-            newNode.next = prevNode.next;
-            prevNode.next = newNode;
+            newNode.next = prevNode.next; //make new connection between elements
+            prevNode.next = newNode; //add new element in spec-place
 
         }
     }
-
+    /*
+        @remove() - delete the item in LinkedList
+        @T item - the element which will be removed from linkedList(generic type)
+        @checkIndex() - method which calls OutOfBound exception
+        @MyNode - class which helps to manage the connections and effectivity in LinkedList
+        @return boolean - if successfully removed true, otherwise false
+    */
     @Override
     public boolean remove(T item) {
         int index=indexOf(item);
-        checkIndex(index);
+        checkIndex(index); //exception
         if (index == 0) {
             head = head.next;
         } else {
@@ -51,7 +71,11 @@ public class MyLinkedList<T> implements MyList<T> {
         size--;
         return false;
     }
-
+    /*
+        @remove() - delete the item in LinkedList
+        @int index - the index of element which will be removed from linkedList
+        @return int - element which was removed.
+    */
     @Override
     public T remove(int index) {
         checkIndex(index); //exception
@@ -68,14 +92,22 @@ public class MyLinkedList<T> implements MyList<T> {
         this.size--;
         return ReturnValue; //value which was removed
     }
-
+    /*
+        @clear() - delete all the elements
+        @noParameters
+        @return void
+    */
     @Override
     public void clear() {
-        this.head = null;
+        this.head = null; //destroy all the connections
         this.tail = null;
         size = 0;
     }
-
+    /*
+        @get() - get the element by index from LinkedList O(n)
+        @int index - index of element in LinkedList
+        @return T - generic type element (any type)
+    */
     public T get(int index) {
         MyNode current = head;
         for (int i = 0; i < index; i++) {
@@ -83,7 +115,11 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         return (T) current.data;
     }
-
+    /*
+        @indexOf() - Return the index of an element
+        @Object o - element of LinkedList
+        @return int - return the index of an element
+    */
     @Override
     public int indexOf(Object o) {
         int index=-1;
@@ -100,20 +136,49 @@ public class MyLinkedList<T> implements MyList<T> {
         return index;
     }
 
+    /*
+        @lastIndexOf() - Returns the index of the last occurrence of the specified element
+        @Object o - element of LinkedList
+        @return int - return the index of an element
+    */
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        int index=-1;
+        int lastOcc=index;
+        for(int i=0;i<size;i++){
+            if(head.data==o){
+                index++;
+                lastOcc=index;
+            }
+            else{
+                head = head.next;
+                index++;
+            }
+        }
+        return lastOcc;
     }
-
+    /*
+        @sort() - sort the array in ascending order (only integer)
+        @noParameters
+        @return void
+    */
     @Override
     public void sort() {
 
     }
-
+    /*
+        @size() - return the size of LinkedList
+        @noParameters
+        @return int - size of LinkedList
+    */
     public int size() {
         return size;
     }
-
+    /*
+        @contains() - checks that is the element in linkedList or not
+        @noParameters
+        @return boolean
+    */
     @Override
     public boolean contains(Object o) {
         int index=indexOf(o);
@@ -124,13 +189,23 @@ public class MyLinkedList<T> implements MyList<T> {
             return true;
         }
     }
-
+    /*
+            @checkIndex - additional method which helps to determine is the index of LinkedList exist or not
+            @int index - index of LinkedList
+            @IndexOutOfBoundsException()- exception which checks is the index greater than size or smaller than 0
+            @return void
+    */
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(); //exception
         }
     }
-
+    /*
+            @getNode() - additional method which helps to get the additional node to make processes faster.
+            @int index - index of LinkedList
+            @checkIndex() - IndexOutOfBoundsException exception, helps to control index and loop
+            @return generic type
+    */
     private T getNode(int index) {
         MyNode current = head;
         checkIndex(index);
