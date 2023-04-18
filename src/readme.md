@@ -18,7 +18,7 @@ private void increseBuffer() {
 }
 ```
 ### ➕ size
-**Description**: return the size of arraylist. `O(n)`
+**Description**: Return the size of arraylist. `O(n)`
 
 ```java
 public int size() {
@@ -58,7 +58,7 @@ public void add(T item, int index) {
 
 ```
 ### ➕ get
-**Description**: get the element by index. `O(1)`
+**Description**: Get the element by index. `O(1)`
 
 ```java
 public T get(int index) {
@@ -67,7 +67,7 @@ public T get(int index) {
 
 ```
 ### ➕ contains
-**Description**: checks is the element is in arraylist or not. `O(n)`
+**Description**: Checks is the element is in arraylist or not. `O(n)`
 
 ```java
 public boolean contains(Object o) {
@@ -320,6 +320,30 @@ public void clear() {
 
 ```java
 
+```
+### ➕ getNode
+**Description**: Get the additional node to make processes faster. Get previous node which used in a lot of methods.
+
+```java
+ private T getNode(int index) {
+        MyNode current = head;
+        checkIndex(index);
+        for (int i = 0; i < index; i++)
+        {
+            current = current.next;
+        }
+        return (T) current;
+    }
+```
+### ➕ checkIndex
+**Description** Helps to determine is the index of LinkedList exist or not. Contains exception.
+
+```java
+private void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(); //exception
+        }
+    }
 ```
 
 

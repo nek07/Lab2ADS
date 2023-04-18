@@ -6,7 +6,7 @@ public class MyArrayList<T> implements MyList<T> {
     private int size = 0;
     private int capacity = 5;
     /*
-        @MyArrayList - constructor of the class
+        @MyArrayList() - constructor of the class
         @noParameters
         @return void
 
@@ -15,7 +15,7 @@ public class MyArrayList<T> implements MyList<T> {
         arr = new Object[capacity];
     }
     /*
-        @add - adds new element in an array.
+        @add() - adds new element in an array.
         @T item -  any element in generic(any) type.
         @return void
     */
@@ -25,7 +25,7 @@ public class MyArrayList<T> implements MyList<T> {
         arr[size++] = item;
     }
     /*
-        @increaseBuffer - increase the size of arrayList
+        @increaseBuffer() - increase the size of arrayList
         @noParameters
         @return void
     */
@@ -40,7 +40,7 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
     /*
-        @get - get the element from arrayList. O(1)
+        @get() - get the element from arrayList. O(1)
         @int index - index of element in arrayList.
         @return T type arr[index] - returns the index's element.
     */
@@ -51,7 +51,7 @@ public class MyArrayList<T> implements MyList<T> {
         return (T) arr[index];
     }
     /*
-        @size - return the size of arrayList
+        @size() - return the size of arrayList
         @noParameters
         @return int
     */
@@ -59,7 +59,7 @@ public class MyArrayList<T> implements MyList<T> {
         return this.size;
     }
     /*
-        @contains - checks that is the element in arrayList or not
+        @contains() - checks that is the element in arrayList or not
         @Object o - generic type element(any type element)
         @return boolean
     */
@@ -73,7 +73,7 @@ public class MyArrayList<T> implements MyList<T> {
         return false;
     }
     /*
-        @add - add the element in spicified place in arrayList.
+        @add() - add the element in spicified place in arrayList.
         @T item - any type element(generic).
         @int index - index of element in an arrayList.
         @return void
@@ -91,7 +91,7 @@ public class MyArrayList<T> implements MyList<T> {
 
     }
     /*
-        @remove- remove element in an arrayList and shift all the elements left.
+        @remove() - remove element in an arrayList and shift all the elements left.
         @T item - generic type element in an array
         @return boolean - if the element was in an array and deleted `true`
     */
@@ -113,7 +113,7 @@ public class MyArrayList<T> implements MyList<T> {
         return answer;
     }
     /*
-        @remove - remove the element in arrayList by index and shift elements to the left
+        @remove() - remove the element in arrayList by index and shift elements to the left
         @int index - index in arraylist.
         @return T - generic type, returns element in array.
     */
@@ -130,7 +130,7 @@ public class MyArrayList<T> implements MyList<T> {
         return element;
     }
     /*
-        @clear - delete all the elements, by creating new Object
+        @clear() - delete all the elements, by creating new Object
         @noParameters
         @return void
     */
@@ -140,7 +140,7 @@ public class MyArrayList<T> implements MyList<T> {
         size=0;
     }
     /*
-        @indexOf - return the index of specified element, otherwise -1
+        @indexOf() - return the index of specified element, otherwise -1
         @Object o - generic type element of an arrayList
         @return int - index or -1
     */
@@ -153,7 +153,7 @@ public class MyArrayList<T> implements MyList<T> {
         return -1;
     }
     /*
-        @size - return index of last occurence of specified element
+        @size() - return index of last occurence of specified element
         @Object o - generic type element of arrayList
         @return int - index of the element in arrayList
     */
@@ -168,7 +168,7 @@ public class MyArrayList<T> implements MyList<T> {
         return index;
     }
     /*
-        @sort - sort the arrayList in ascending order(only integer)
+        @sort() - sort the arrayList in ascending order(only integer)
         @noParameters
         @return void
     */
