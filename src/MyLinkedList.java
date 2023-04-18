@@ -9,23 +9,20 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     public void add(T newItem) {
-        MyNode newNode = new MyNode(newItem);
+        MyNode<T> newNode = new MyNode<>(newItem);
         if (head == null) {
-            head = newNode;
+            head = tail = newNode;
         } else {
-            MyNode current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            tail.next=newNode;
+            tail = newNode;
         }
         size++;
     }
 
     @Override
     public void add(T item, int index) {
-        MyNode newNode = new MyNode(item);
-        MyNode prevNode = new MyNode(item);
+        MyNode<T> newNode = new MyNode<>(item);
+        MyNode<T> prevNode = new MyNode<>(item);
         checkIndex(index);
         if (head == null) {
             head = newNode;
@@ -39,8 +36,15 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public boolean remove(T item) {
-        return true;
+    public boolean remove(T item) { //+++++++++++++++++
+        int index=indexOf(item);
+        checkIndex(index);
+        if(index>=0){
+            remove(index-1);
+            size--;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -56,13 +60,15 @@ public class MyLinkedList<T> implements MyList<T> {
             before.next = before.next.next; //connect the element before and after specified index
 
         }
-        size--;
+        this.size--;
         return ReturnValue; //value which was removed
     }
 
     @Override
     public void clear() {
-
+        this.head = null;
+        this.tail = null;
+        size = 0;
     }
 
     public T get(int index) {
@@ -75,7 +81,19 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        int index=-1;
+
+        for(int i=0;i<size;i++){
+            if(head.data==o){
+                index++;
+                break;
+            }
+            else{
+                head = head.next;
+                index++;
+            }
+        }
+        return index;
     }
 
     @Override
@@ -94,7 +112,13 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        int index=indexOf(o);
+        if(index==-1){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     private void checkIndex(int index) {
@@ -105,7 +129,9 @@ public class MyLinkedList<T> implements MyList<T> {
 
     private T getNode(int index) {
         MyNode current = head;
-        for (int i = 0; i < index; i++) {
+        checkIndex(index);
+        for (int i = 0; i < index; i++)
+        {
             current = current.next;
         }
         return (T) current;
