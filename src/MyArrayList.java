@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyArrayList<T> implements MyList<T> {
 
     private Object[] arr;
@@ -26,11 +28,14 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     public T get(int index) {
+        if(index < 0 || index>=size){
+            throw new IndexOutOfBoundsException();
+        }
         return (T) arr[index];
     }
 
     public int size() {
-        return size;
+        return this.size;
     }
 
     @Override
@@ -76,6 +81,9 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
+        if(index < 0 || index>=size){
+            throw new IndexOutOfBoundsException();
+        }
         T element = (T) arr[index];
         for (int i = index; i < size - 1; i++) {
             arr[i] = arr[i + 1];
@@ -86,9 +94,7 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void clear() {
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = null;
-        }
+        this.arr = (T[]) new Object[5];
         size=0;
     }
 
@@ -114,6 +120,6 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-
+        Arrays.sort(arr);
     }
 }
