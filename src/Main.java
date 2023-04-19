@@ -11,8 +11,12 @@ public class Main {
     public static void main(String[] args) {
         boolean iteration = true;
         while (iteration) {
+            System.out.println("1. ArrayList\n"+"2. LinkedList\n");
             int choice = scan.nextInt();
-
+            System.out.println("1. add(int index)\n"+"2. add(T item, int index)\n"
+                    +"3. size()\n"+"4. contains(T item)\n"+"5. remove(int index)\n"+"6. remove(T item)\n"+
+                    "7. clear()\n"+"8. get(int index)\n"+"9. indexOf(T item)\n"+"10. lastIndexOf(T item)\n"
+                    +"11. sort()\n"+ "12. leave");
             switch (choice){
                 case 1:
                     while (iteration) {
@@ -48,7 +52,7 @@ public class Main {
                                 arrListStr.add("apple");
                                 arrListStr.add("orange");
                                 for (int i = 0; i < arrListStr.size(); i++) {
-                                    System.out.print(arrListStr.get(i));
+                                    System.out.print(arrListStr.get(i)+ " ");
                                 }
                                 System.out.println("\nelement which index = 0 : " + arrListStr.get(0));
                                 System.out.println(arrListStr.remove("banana"));
@@ -61,14 +65,16 @@ public class Main {
                                 break;
                             case 8:
                                 printArrList();
-                                System.out.println("\n" + arrListInt.get(0));
+                                System.out.println("\n" + arrListInt.get(1));
                                 break;
                             case 9:
                                 printArrList();
+                                System.out.println();
                                 System.out.println(arrListInt.indexOf(1));
                                 break;
                             case 10:
                                 printArrList();
+                                System.out.println();
                                 System.out.println(arrListInt.lastIndexOf(1));
                                 break;
                             case 11:
@@ -95,7 +101,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println(linkListStr.get(2));
-                                arrListStr.add("g", 2);
+                                linkListStr.add("g", 2);
                                 System.out.println(linkListStr.get(2));
                                 break;
                             case 3:
@@ -128,10 +134,12 @@ public class Main {
                                 break;
                             case 9:
                                 printArrList();
+                                System.out.println();
                                 System.out.println(arrListInt.indexOf(1));
                                 break;
                             case 10:
                                 printLinkedList();
+                                System.out.println();
                                 System.out.println(linkListStr.lastIndexOf(1));
                                 break;
                             case 11:
