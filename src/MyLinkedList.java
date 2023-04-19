@@ -5,7 +5,7 @@ public class MyLinkedList<T> implements MyList<T> {
     private MyNode<T> tail;
     private int size;
     /*
-        @MyLinkedList() - contructor of this class
+        @MyLinkedList() - contractor of this class
         @noParameters
         @return void
     */
@@ -38,7 +38,7 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public void add(T item, int index) {
         MyNode<T> newNode = new MyNode<>(item);
-        MyNode<T> prevNode = new MyNode<>(item);
+        MyNode<T> prevNode;
         checkIndex(index);
         if (head == null) {
             head = newNode;
@@ -164,7 +164,26 @@ public class MyLinkedList<T> implements MyList<T> {
     */
     @Override
     public void sort() {
-
+        MyNode current = head;
+        MyNode index = null;
+        T temp;
+        if(head==null){
+            return;
+        }
+        else{
+            while(current!=null){
+                index=current.next;
+                while(index!=null){
+                    if((int)current.data>(int)index.data){
+                        temp= (T) index.data;
+                        index.data = current.data;
+                        current.data=temp;
+                    }
+                    index=index.next;
+                }
+                current=current.next;
+            }
+        }
     }
     /*
         @size() - return the size of LinkedList

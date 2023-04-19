@@ -345,5 +345,14 @@ private void checkIndex(int index) {
         }
     }
 ```
+# MyNode
+### ➕ MyNode
+**Description**: The constructor which creates node. Contains data and pointer to the next element.
 
+```java
+public MyNode(T data) {
+        this.data= data;
+        next = null;
+        }
+```
 
