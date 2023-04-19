@@ -119,14 +119,12 @@ public class Main {
                                 break;
                             case 6:
                                 printLinkedList();
-                                System.out.println("\nelement which index = 0 : " + linkListStr.get(0));
-                                System.out.println(arrListStr.remove("a"));
-                                System.out.println("element which index = 0 : " + linkListStr.get(0));
+                                System.out.println("\nelement which index = 1 : " + linkListStr.get(1));
+                                System.out.println(arrListStr.remove("b"));
+                                System.out.println("element which index = 1 : " + linkListStr.get(1));
                                 break;
                             case 7:
                                 System.out.println("size before - " + linkListStr.size());
-                                arrListInt.clear();
-                                System.out.println("size after - " + linkListStr.size());
                                 break;
                             case 8:
                                 printArrList();
@@ -135,21 +133,21 @@ public class Main {
                             case 9:
                                 printArrList();
                                 System.out.println();
-                                System.out.println(arrListInt.indexOf(1));
+                                System.out.println("first occurrence is "+linkListStr.indexOf("a"));
                                 break;
                             case 10:
                                 printLinkedList();
                                 System.out.println();
-                                System.out.println(linkListStr.lastIndexOf(1));
+                                System.out.println("last occurrence is "+linkListStr.lastIndexOf("a"));
                                 break;
                             case 11:
                                 linkListInt.add(5);
-                                linkListInt.add(2);
                                 linkListInt.add(1);
+                                linkListInt.add(2);
                                 for (int i = 0; i < linkListInt.size(); i++) {
                                     System.out.print(linkListInt.get(i) + " ");
                                 }
-                                linkListStr.sort();
+                                linkListInt.sort();
                                 System.out.println();
                                 for (int i = 0; i < linkListInt.size(); i++) {
                                     System.out.print(linkListInt.get(i) + " ");
