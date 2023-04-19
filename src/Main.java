@@ -6,6 +6,7 @@ public class Main {
     static MyArrayList<Integer> arrListInt = new MyArrayList<>();
     static MyArrayList<String> arrListStr = new MyArrayList<>();
     static MyLinkedList<String> linkListStr = new MyLinkedList<>();
+    static MyLinkedList<Integer> linkListInt = new MyLinkedList<>();
 
     public static void main(String[] args) {
         boolean iteration = true;
@@ -114,6 +115,27 @@ public class Main {
                 case 8:
                     printArrList();
                     System.out.println("\n" + linkListStr.get(0));
+                    break;
+                case 9:
+                    printArrList();
+                    System.out.println(arrListInt.indexOf(1));
+                    break;
+                case 10:
+                    printLinkedList();
+                    System.out.println(linkListStr.lastIndexOf(1));
+                    break;
+                case 11:
+                    linkListInt.add(5);
+                    linkListInt.add(2);
+                    linkListInt.add(1);
+                    for (int i = 0; i < linkListInt.size(); i++) {
+                        System.out.print(linkListInt.get(i) + " ");
+                    }
+                    linkListStr.sort();
+                    System.out.println();
+                    for (int i = 0; i < linkListInt.size(); i++) {
+                        System.out.print(linkListInt.get(i) + " ");
+                    }
                     break;
             }
         }
