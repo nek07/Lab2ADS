@@ -319,7 +319,28 @@ public void clear() {
 **Description**: Sorts LinkedList in the ascending order (only integer type). `O(n)`
 
 ```java
-
+public void sort() {
+        MyNode current = head;
+        MyNode index = null;
+        T temp;
+        if(head==null){
+            return;
+        }
+        else{
+            while(current!=null){
+                index=current.next;
+                while(index!=null){
+                    if((int)current.data>(int)index.data){
+                        temp= (T) index.data;
+                        index.data = current.data;
+                        current.data=temp;
+                    }
+                    index=index.next;
+                }
+                current=current.next;
+            }
+        }
+    }
 ```
 ### ➕ getNode
 **Description**: Get the additional node to make processes faster. Get previous node which used in a lot of methods.
