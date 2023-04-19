@@ -3,10 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scan= new Scanner(System.in);
+    static MyArrayList <Integer> arrListInt = new MyArrayList<>();
+    static MyArrayList <String> arrListStr = new MyArrayList<>();
+    static MyLinkedList <String> linkListStr = new MyLinkedList<>();
     public static void main(String[] args) {
-        MyArrayList <Integer> arrListInt = new MyArrayList<>();
-        MyArrayList <String> arrListStr = new MyArrayList<>();
-        MyLinkedList <String> linkListStr = new MyLinkedList<>();
+
+        while(true){
         int choice = scan.nextInt();
         switch(choice){
             case 1:
@@ -14,7 +16,7 @@ public class Main {
                 arrListInt.add(1);
                 arrListInt.add(8);
                 arrListInt.add(7);
-                arrListInt.add(2);
+                arrListInt.add(1);
                 break;
             case 2:
                 System.out.println(arrListInt.get(3));
@@ -22,12 +24,10 @@ public class Main {
                 System.out.println(arrListInt.get(3));
                 break;
             case 3:
-                arrListInt.size();
+                System.out.println(arrListInt.size());
                 break;
             case 4:
-                for(int i = 0; i< arrListInt.size();i++){
-                    System.out.print(arrListInt.get(i));
-                }
+
                 arrListInt.contains(4);
                 arrListInt.contains(10);
                 break;
@@ -46,8 +46,29 @@ public class Main {
                 System.out.println(arrListStr.remove("banana"));
                 System.out.println("element which index = 0 : "+arrListInt.get(0));
                 break;
-
-        }
+            case 7:
+                System.out.println("size before - "+arrListInt.size());
+                arrListInt.size();
+                System.out.println("size after - "+arrListInt.size());
+                break;
+            case 8:
+                System.out.println(arrListInt.get(0));
+                break;
+            case 9:
+                printArrList();
+                System.out.println(arrListInt.contains(1));
+        }}
 
     }
+    public static void printArrList(){
+        for(int i = 0; i < arrListInt.size();i++){
+            System.out.print(arrListInt.get(i));
+        }
+    }
+    public static void printLinkedList(){
+        for(int i = 0; i < linkListStr.size();i++){
+            System.out.print(linkListStr.get(i));
+        }
+    }
+
 }
