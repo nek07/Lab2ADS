@@ -7,8 +7,7 @@ public class Main {
     static MyArrayList <String> arrListStr = new MyArrayList<>();
     static MyLinkedList <String> linkListStr = new MyLinkedList<>();
     public static void main(String[] args) {
-
-        while(true){
+    while(true){
         int choice = scan.nextInt();
         switch(choice){
             case 1:
@@ -28,8 +27,8 @@ public class Main {
                 break;
             case 4:
                 printArrList();
-                arrListInt.contains(4);
-                arrListInt.contains(10);
+                System.out.println("\n4 in arrayList = "+arrListInt.contains(4));
+                System.out.println("10 in arrayList = "+arrListInt.contains(10));
                 break;
             case 5:
                 System.out.println("element which index = 3 : "+arrListInt.get(3));
