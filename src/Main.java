@@ -39,12 +39,13 @@ public class Main {
             case 6:
                 arrListStr.add("banana");
                 arrListStr.add("apple");
+                arrListStr.add("orange");
                 for(int i = 0; i < arrListStr.size();i++){
-                    System.out.print(arrListStr.get(i));
+                    System.out.print(arrListStr.get(i)+ " ");
                 }
-                System.out.println("element which index = 0 : "+arrListStr.get(0));
+                System.out.println("\nelement which index = 0 : "+arrListStr.get(0));
                 System.out.println(arrListStr.remove("banana"));
-                System.out.println("element which index = 0 : "+arrListInt.get(0));
+                System.out.println("element which index = 0 : "+arrListStr.get(0));
                 break;
             case 7:
                 System.out.println("size before - "+arrListInt.size());

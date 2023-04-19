@@ -45,9 +45,7 @@ public class MyArrayList<T> implements MyList<T> {
         @return T type arr[index] - returns the index's element.
     */
     public T get(int index) {
-        if(index < 0 || index>=size){
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         return (T) arr[index];
     }
     /*
@@ -80,6 +78,7 @@ public class MyArrayList<T> implements MyList<T> {
     */
     @Override
     public void add(T item, int index) {
+        checkIndex(index);
         if (size == capacity) {
             increseBuffer();
         }
@@ -97,20 +96,17 @@ public class MyArrayList<T> implements MyList<T> {
     */
     @Override
     public boolean remove(T item) {
-        int index = -1;
-        boolean answer = false;
-        for (int i = 0; i < size; i++) {
-            if(item==arr[i]){
-                index=i;
-                answer=true;
-                break;
-            }
-        }
-        if(index>=0)
-            for (int i = index; i < size - 1; i++) {
+        int index = indexOf(item);
+        if(index>=0){
+            for (int i = index; i < size-1; i++) {
                 arr[i] = arr[i + 1];
             }
-        return answer;
+            size--;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     /*
         @remove() - remove the element in arrayList by index and shift elements to the left
@@ -119,9 +115,7 @@ public class MyArrayList<T> implements MyList<T> {
     */
     @Override
     public T remove(int index) {
-        if(index < 0 || index>=size){
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         T element = (T) arr[index];
         for (int i = index; i < size - 1; i++) {
             arr[i] = arr[i + 1];
@@ -147,8 +141,9 @@ public class MyArrayList<T> implements MyList<T> {
     @Override
     public int indexOf(Object o) {
         for(int i = 0; i<size; i++){
-        if(o==arr[i])
-            return i;
+            if(o.equals(arr[i])) {
+                return i;
+            }
         }
         return -1;
     }
@@ -176,4 +171,11 @@ public class MyArrayList<T> implements MyList<T> {
     public void sort() {
         Arrays.sort(arr);
     }
+
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(); //exception
+        }
+    }
 }
+
