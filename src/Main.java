@@ -41,7 +41,7 @@ public class Main {
                 arrListStr.add("apple");
                 arrListStr.add("orange");
                 for(int i = 0; i < arrListStr.size();i++){
-                    System.out.print(arrListStr.get(i)+ " ");
+                    System.out.print(arrListStr.get(i));
                 }
                 System.out.println("\nelement which index = 0 : "+arrListStr.get(0));
                 System.out.println(arrListStr.remove("banana"));
@@ -60,7 +60,15 @@ public class Main {
                 printArrList();
                 System.out.println(arrListInt.indexOf(1));
                 break;
-
+            case 10:
+                printArrList();
+                System.out.println(arrListInt.lastIndexOf(1));
+                break;
+            case 11:
+                printArrList();
+                arrListInt.sort();
+                printArrList();
+                break;
         }}
 
     }
