@@ -172,6 +172,12 @@ public class MyArrayList<T> implements MyList<T> {
         Arrays.sort(arr);
     }
 
+    /*
+        @checkIndex - additional method which helps to determine is the index of LinkedList exist or not
+        @int index - index of LinkedList
+        @IndexOutOfBoundsException()- exception which checks is the index greater than size or smaller than 0
+        @return void
+     */
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(); //exception
