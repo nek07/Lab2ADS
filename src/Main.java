@@ -50,7 +50,7 @@ public class Main {
                     break;
                 case 7:
                     System.out.println("size before - " + arrListInt.size());
-                    arrListInt.size();
+                    arrListInt.clear();
                     System.out.println("size after - " + arrListInt.size());
                     break;
                 case 8:
@@ -94,6 +94,26 @@ public class Main {
                     printLinkedList();
                     System.out.println("\na in linkedList = " + linkListStr.contains("a"));
                     System.out.println("c in linkedList = " + linkListStr.contains("c"));
+                    break;
+                case 5:
+                    System.out.println("element which index = 2 : " + linkListStr.get(2));
+                    System.out.println("Element which was removed = " + linkListStr.remove(2));
+                    System.out.println("element which index = 2 : " + linkListStr.get(2));
+                    break;
+                case 6:
+                    printLinkedList();
+                    System.out.println("\nelement which index = 0 : " + linkListStr.get(0));
+                    System.out.println(arrListStr.remove("a"));
+                    System.out.println("element which index = 0 : " + linkListStr.get(0));
+                    break;
+                case 7:
+                    System.out.println("size before - " + linkListStr.size());
+                    arrListInt.clear();
+                    System.out.println("size after - " + linkListStr.size());
+                    break;
+                case 8:
+                    printArrList();
+                    System.out.println("\n" + linkListStr.get(0));
                     break;
             }
         }
