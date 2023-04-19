@@ -38,13 +38,12 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public void add(T item, int index) {
         MyNode<T> newNode = new MyNode<>(item);
-        MyNode<T> prevNode;
+        MyNode<T> prevNode= new MyNode<>(item);
         checkIndex(index);
         if (head == null) {
             head = newNode;
         } else {
-            prevNode = head;
-            getNode(index);
+            prevNode = (MyNode<T>) getNode(index-1);
             newNode.next = prevNode.next; //make new connection between elements
             prevNode.next = newNode; //add new element in spec-place
 
@@ -66,7 +65,7 @@ public class MyLinkedList<T> implements MyList<T> {
         } else {
             MyNode<T> before = (MyNode<T>) getNode(index-1); //take the element before index's value
             before = before.next; //connect the element before and after specified index
-
+            return true;
         }
         size--;
         return false;
@@ -101,7 +100,7 @@ public class MyLinkedList<T> implements MyList<T> {
     public void clear() {
         this.head = null; //destroy all the connections
         this.tail = null;
-        size = 0;
+        this.size = 0;
     }
     /*
         @get() - get the element by index from LinkedList O(n)
@@ -124,7 +123,7 @@ public class MyLinkedList<T> implements MyList<T> {
     public int indexOf(Object o) {
         int index=-1;
         for(int i=0;i<size;i++){
-            if(head.data==o){
+            if(o.equals(head.data)){
                 index++;
                 break;
             }
