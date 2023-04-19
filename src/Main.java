@@ -27,7 +27,7 @@ public class Main {
                 System.out.println(arrListInt.size());
                 break;
             case 4:
-
+                printArrList();
                 arrListInt.contains(4);
                 arrListInt.contains(10);
                 break;
@@ -52,22 +52,25 @@ public class Main {
                 System.out.println("size after - "+arrListInt.size());
                 break;
             case 8:
-                System.out.println(arrListInt.get(0));
+                printArrList();
+                System.out.println("\n"+arrListInt.get(0));
                 break;
             case 9:
                 printArrList();
-                System.out.println(arrListInt.contains(1));
+                System.out.println(arrListInt.indexOf(1));
+                break;
+
         }}
 
     }
     public static void printArrList(){
         for(int i = 0; i < arrListInt.size();i++){
-            System.out.print(arrListInt.get(i));
+            System.out.print(arrListInt.get(i)+ " ");
         }
     }
     public static void printLinkedList(){
         for(int i = 0; i < linkListStr.size();i++){
-            System.out.print(linkListStr.get(i));
+            System.out.print(linkListStr.get(i)+ " ");
         }
     }
 
