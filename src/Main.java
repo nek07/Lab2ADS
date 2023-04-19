@@ -5,6 +5,7 @@ public class Main {
     static Scanner scan= new Scanner(System.in);
     public static void main(String[] args) {
         MyArrayList <Integer> arrListInt = new MyArrayList<>();
+        MyArrayList <String> arrListStr = new MyArrayList<>();
         MyLinkedList <String> linkListStr = new MyLinkedList<>();
         int choice = scan.nextInt();
         switch(choice){
@@ -19,6 +20,7 @@ public class Main {
                 System.out.println(arrListInt.get(3));
                 arrListInt.add(100,3);
                 System.out.println(arrListInt.get(3));
+                break;
             case 3:
                 arrListInt.size();
                 break;
@@ -30,6 +32,20 @@ public class Main {
                 arrListInt.contains(10);
                 break;
             case 5:
+                System.out.println("element which index = 3 : "+arrListInt.get(3));
+                System.out.println("Element which was removed = "+arrListInt.remove(3));
+                System.out.println("element which index = 3 : "+arrListInt.get(3));
+                break;
+            case 6:
+                arrListStr.add("banana");
+                arrListStr.add("apple");
+                for(int i = 0; i < arrListStr.size();i++){
+                    System.out.print(arrListStr.get(i));
+                }
+                System.out.println("element which index = 0 : "+arrListStr.get(0));
+                System.out.println(arrListStr.remove("banana"));
+                System.out.println("element which index = 0 : "+arrListInt.get(0));
+                break;
 
         }
 
