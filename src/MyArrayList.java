@@ -192,7 +192,7 @@ public class MyArrayList<T> implements MyList<T> {
     */
 
     public void addAll(int index,T[] list) {
-        for (int i=index;i<list.length;i++) {
+        for (int i=0;i<list.length;i++) {
             checkIndex(index);
             if (size == capacity) {
                 increseBuffer();

@@ -26,10 +26,10 @@ public class Main {
         linkListInt.add(30);
         printLinkedList();
         System.out.println();
-        linkListInt.addAll(1,arr);
+        linkListInt.addAll(2,arr);
         printLinkedList();
-    }
-       /* boolean iteration = true;
+        System.out.println();
+       boolean iteration = true;
         while (iteration) {
             System.out.println("1. ArrayList\n"+"2. LinkedList\n");
             int choice = scan.nextInt();
@@ -182,7 +182,7 @@ public class Main {
             }
         }
 
-    }*/
+    }
     public static void printArrList(){
         for (int i = 0; i < arrListInt.size(); i++) {
             System.out.print(arrListInt.get(i) + " ");

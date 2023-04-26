@@ -241,7 +241,7 @@ public class MyLinkedList<T> implements MyList<T> {
       @return void.
      */
     public void addAll(int index, T[] list) {
-        for (int i = index; i < list.length; i++) {
+        for (int i = 0; i < list.length; i++) {
             MyNode<T> newNode = new MyNode<>(list[i]);
             MyNode<T> prevNode = new MyNode<>(list[i]);
             checkIndex(index);

@@ -162,6 +162,24 @@ public int indexOf(Object o) {
         Arrays.sort(arr);
         }
 ```
+### ➕ addAll
+**Description**: Add all the elements from array at specified index and shift elements to the right.
+```java
+public void addAll(int index,T[] list) {
+        for (int i=0;i<list.length;i++) {
+            checkIndex(index);
+            if (size == capacity) {
+                increseBuffer();
+            }
+            for (int j = size; j > index; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[index] = list[i];
+            size++;
+            index++;
+        }
+}
+```
 # MyLinkedList
 ### ➕ get
 **Description**: This function returns the element at the given index in the linked list. `O(n)`
@@ -365,6 +383,27 @@ private void checkIndex(int index) {
             throw new IndexOutOfBoundsException(); //exception
         }
     }
+```
+### ➕ addAll
+**Description**: Add all the elements from array at specified index and shift elements to the right.
+```java
+public void addAll(int index, T[] list) {
+        for (int i = 0; i < list.length; i++) {
+            MyNode<T> newNode = new MyNode<>(list[i]);
+            MyNode<T> prevNode = new MyNode<>(list[i]);
+            checkIndex(index);
+            if (head == null) {
+                head = newNode;
+            } 
+            else {
+                prevNode = (MyNode<T>) getNode(index - 1);
+                newNode.next = prevNode.next;
+                prevNode.next = newNode;
+        }
+        index++;
+        size++;
+        }
+}
 ```
 # MyNode
 ### ➕ MyNode
