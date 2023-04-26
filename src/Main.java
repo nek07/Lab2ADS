@@ -11,6 +11,7 @@ public class Main {
     static MyLinkedList<Integer> linkListInt = new MyLinkedList<>();
 
     public static void main(String[] args) {
+        System.out.println("ArrayList test(addAll)");
         arrListInt.add(10);
         arrListInt.add(20);
         arrListInt.add(30);
@@ -20,7 +21,7 @@ public class Main {
 
         arrListInt.addAll(1,arr);
         printArrList();
-        System.out.println();
+        System.out.println("\nLinkedList test(addAll)");
         linkListInt.add(10);
         linkListInt.add(20);
         linkListInt.add(30);
@@ -28,7 +29,8 @@ public class Main {
         System.out.println();
         linkListInt.addAll(2,arr);
         printLinkedList();
-        System.out.println();
+        System.out.println("\nassignment 2 menu\n");
+
        boolean iteration = true;
         while (iteration) {
             System.out.println("1. ArrayList\n"+"2. LinkedList\n");
