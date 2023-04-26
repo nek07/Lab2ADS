@@ -9,7 +9,6 @@ public class MyArrayList<T> implements MyList<T> {
         @MyArrayList() - constructor of the class
         @noParameters
         @return void
-
     */
     public MyArrayList() {
         arr = new Object[capacity];
@@ -183,5 +182,27 @@ public class MyArrayList<T> implements MyList<T> {
             throw new IndexOutOfBoundsException(); //exception
         }
     }
-}
+    /*
+      @addAll - function which add list of data at specified index.
+      @int index - specified index.
+      @T[] list - contain elements which will be added.
+      @checkIndex - checks is the index existed in arraylist or not.(IndexOutOfBoundException)
+      @increaseBuffer() - increase the size of arrayList.
+      @return void.
+    */
 
+    public void addAll(int index,T[] list) {
+        for (int i=index;i<list.length;i++) {
+            checkIndex(index);
+            if (size == capacity) {
+                increseBuffer();
+            }
+            for (int j = size; j > index; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[index] = list[i];
+            size++;
+            index++;
+        }
+    }
+}

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class Main {
     static Scanner scan = new Scanner(System.in);
     static MyArrayList<Integer> arrListInt = new MyArrayList<>();
@@ -9,7 +11,25 @@ public class Main {
     static MyLinkedList<Integer> linkListInt = new MyLinkedList<>();
 
     public static void main(String[] args) {
-        boolean iteration = true;
+        arrListInt.add(10);
+        arrListInt.add(20);
+        arrListInt.add(30);
+        printArrList();
+        System.out.println();
+        Integer[] arr = {1,2,3,4,5};
+
+        arrListInt.addAll(1,arr);
+        printArrList();
+        System.out.println();
+        linkListInt.add(10);
+        linkListInt.add(20);
+        linkListInt.add(30);
+        printLinkedList();
+        System.out.println();
+        linkListInt.addAll(1,arr);
+        printLinkedList();
+    }
+       /* boolean iteration = true;
         while (iteration) {
             System.out.println("1. ArrayList\n"+"2. LinkedList\n");
             int choice = scan.nextInt();
@@ -162,17 +182,19 @@ public class Main {
             }
         }
 
+    }*/
+    public static void printArrList(){
+        for (int i = 0; i < arrListInt.size(); i++) {
+            System.out.print(arrListInt.get(i) + " ");
+        }
     }
-        public static void printArrList(){
-            for (int i = 0; i < arrListInt.size(); i++) {
-                System.out.print(arrListInt.get(i) + " ");
-            }
+    public static void printLinkedList(){
+        for (int i = 0; i < linkListInt.size(); i++) {
+            System.out.print(linkListInt.get(i) + " ");
         }
-        public static void printLinkedList(){
-            for (int i = 0; i < linkListStr.size(); i++) {
-                System.out.print(linkListStr.get(i) + " ");
-            }
-        }
+    }
+
+
 
 
 }

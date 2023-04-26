@@ -233,6 +233,29 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         return (T) current;
     }
+    /*
+      @addAll - function which add list of data at specified index.
+      @int index - specified index.
+      @T[] list - contain elements which will be added.
+      @checkIndex - checks is the element at this place null or not.(IndexOutOfBoundException)
+      @return void.
+     */
+    public void addAll(int index, T[] list) {
+        for (int i = index; i < list.length; i++) {
+            MyNode<T> newNode = new MyNode<>(list[i]);
+            MyNode<T> prevNode = new MyNode<>(list[i]);
+            checkIndex(index);
+            if (head == null) {
+                head = newNode;
+            } else {
+                prevNode = (MyNode<T>) getNode(index - 1);
+                newNode.next = prevNode.next;
+                prevNode.next = newNode;
 
+            }
+            index++;
+            size++;
+        }
+    }
 
 }
